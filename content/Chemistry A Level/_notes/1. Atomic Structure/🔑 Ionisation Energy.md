@@ -94,11 +94,64 @@ $$
 >| $\mathrm{n}$                         | 0.35                               |
 >| $\mathrm{n-1}$                       | 0.85                               |
 >| $\mathrm{n-2}$ and beyond            | 1.00                               |
-> >[!example] 
+> > 
 > >- Consider the outermost electron of sodium ($\ce{Na}$)
 > >- To calculate the effective nuclear charge we need to calculate the shielding constant
 > >- The electronic configuration of sodium is $\mathrm{1s^{2}2s^{2}2p^{6}3s^1}$
-> > $$ \begin{align}S &= 8(0.85) + 2(1.00) \\&= 8.80 \\Z_{eff}&=Z-S \\&= 11 - 8.80 \\&= 2.20\end{align}$$
+> > 
+> > $$ \begin{aligned}S &= 8(0.85) + 2(1.00) \\&= 8.80 \\Z_{eff}&=Z-S \\&= 11 - 8.80 \\&= 2.20\end{aligned}$$
 >>
 >>- Therefore the outermost electron in sodium only experiences an effective nuclear charge of 2.20 due to shielding, which is considerably lower than the actual nuclear charge of 11
 
+### 4. Spin-pair repulsion
+- When an atomic orbital is occupied by two electrons, since electrons are negatively charged they experience electrostatic repulsion from each other.
+- This repulsion adds a small amount of potential energy to the system.
+- This means that an electron that is paired in an orbital is held slightly less strongly by the nucleus than an electron in a singly occupied orbital (where there is no such repulsion).
+- Less energy is needed to remove one of these paired electrons compared to removing an electron in a singly occupied orbital.
+
+#### Spin-pair repulsion causing anomalies in ionisation energy:
+- The effect of spin-pair repulsion is particularly noticeable between group 15 and 16 first ionisation energies.
+- Group 15 electronic configurations end with $\mathrm{ns^2np^3}$ while group 16 electronic configurations end with $\mathrm{ns^2np^4}$
+- In electron in box notation:
+	- Group 15: ![[Pasted image 20250917222152.png|124x30]]
+	- Group 16: ![[Pasted image 20250917222408.png|124x30]]
+- As you can see, group 16 elements have two paired electrons in one p orbital
+- This will lead to spin-pair repulsion, which will in turn lead to an ionisation energy that is less than expected
+
+
+**Examples:**
+1. Nitrogen (Group 15) and Oxygen (Group 16)
+	- The first ionisation energy of oxygen is less than that of nitrogen despite oxygen having a higher nuclear charge and similar shielding effect.
+	- This is because the paired electrons in one of the p orbitals in the outer shell of oxygen causes spin-pair repulsion, where negatively charged electrons repel each other, needing less energy to remove one of them.
+2. Phosphorous (Group 15) and Sulfur (Group 16)
+3. Arsenic (Group 15) and Selenium (Group 16)
+
+>[!important] Important points
+>- Presence of two electrons in a single orbital leads to electrostatic repulsion as electrons are negatively charge (same charges repel)
+>- This repulsion increases the potential energy of the system
+>- Less energy is needed to remove one of these paired electrons
+>- Spin pair repulsion is most noticeable between Group 15 and Group 16
+
+
+### 5. Presence of subshells
+- The first $\mathrm{IE}$ of aluminium is lower than the first $\mathrm{IE}$ of magnesium, despite aluminium having a larger nuclear charge and similar shielding, this is due to the presence of subshells.
+- The electronic configuration of magnesium is $\mathrm{1s^22s^22p^63s^2}$ and the electronic configuration of aluminium is $\mathrm{1s^22s^22p^63s^23p^1}$
+- The outermost electron (electron to be removed) in magnesium is in the $\mathrm{3s}$ subshell while the outermost electron in aluminium is in the $\mathrm{3p}$ subshell.
+- The $\mathrm{3p}$ subshell is higher in energy than the $\mathrm{3s}$ subshell.
+![[Drawing 2025-09-17 23.04.34.excalidraw]]
+- This means that less energy is needed to remove the outermost electron in aluminium than in magnesium.
+
+**Other examples of presence of subshells causing anomaly:**
+1. Beryllium (Group 2) and Boron (Group 3)
+2. Calcium (Group 2) and Gallium (Group 3)
+
+## Trends in ionisation energy
+### Trend down a group
+<figure><div class="sme-img-ctn cc"><img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/649951be-928f-4957-aed9-adac63bba36a/first-ionisation-energy-group-2.png" style="height:300px;"></div><figcaption>First ionisation energies of group 2 elements</figcaption></figure>
+Down any group, there is a general decrease in ionisation energy.
+- Down the group atomic radii increases due to increase in number of shells. Distance between nucleus and outermost electron increases, force of electrostatic attraction is weaker, less energy is needed to remove an electron.
+- Since number of shells increases, the outermost electron is more shielded from the nuclear charge. Effective nuclear charge decreases, force of electrostatic attraction is weaker, less energy is needed to remove an electron.
+- ==The increased shielding and greater distance of outermost electron from nucleus outweighs the increase in nuclear charge down a group.==
+
+### Trend across a period
+<figure><div class="sme-img-ctn cc"><img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/28677575-721f-409d-90cd-808bb7e01d63/first-ionisation-energy-period-3.png" style="height:300px;"></div><figcaption>First ionisation energies of period 3 elements</figcaption></figure>
