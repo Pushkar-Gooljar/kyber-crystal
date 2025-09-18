@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Poverty: An Interactive Dossier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Earth Tones -->
+    <!-- Application Structure Plan: The application is structured as a single-page dashboard with a fixed top navigation bar. This allows users to jump between key themes: Defining Poverty, its Causes, Consequences, potential Solutions, and a real-world Case Study. This thematic, non-linear structure is chosen over a simple linear scroll to empower users, especially students preparing for an essay, to quickly access and compare different facets of the issue. The flow is designed to be intuitive: understand the problem, explore its roots and effects, examine solutions, and see a success story. Interactive elements within each section, like clickable cards and dynamic charts, encourage active exploration rather than passive reading, aiding in the synthesis of complex information. -->
+    <!-- Visualization & Content Choices: 
+        1. Poverty Stats -> Goal: Inform -> Viz: Donut Chart & Key Figure Cards -> Interaction: Hover tooltips -> Justification: The donut chart quickly shows regional proportions, while cards highlight headline numbers for immediate impact. (Chart.js)
+        2. Types of Poverty -> Goal: Organize/Define -> Viz: Interactive Tabbed Cards -> Interaction: Click to reveal content -> Justification: This breaks down complex definitions into digestible, user-initiated reveals, preventing information overload. (HTML/JS)
+        3. Causes of Poverty -> Goal: Show Relationships -> Viz: HTML/CSS based interactive diagram -> Interaction: Click a cause to update a central detail panel -> Justification: Visually organizes complex, interconnected causes and allows focused exploration of each one without clutter. (HTML/JS)
+        4. Consequences -> Goal: Compare -> Viz: Bar Chart -> Interaction: Dropdown to filter data category (Health vs. Education) -> Justification: A bar chart provides a clear, powerful comparison between high and low-income nations. The filter makes the visualization versatile and user-driven. (Chart.js)
+        5. Solutions -> Goal: Organize -> Viz: Accordion component -> Interaction: Click to expand/collapse -> Justification: Organizes a large amount of text cleanly, separating "Top-Down" and "Bottom-Up" approaches logically. (HTML/JS)
+        6. Case Study -> Goal: Show Change -> Viz: Line Chart -> Interaction: Hover for year-specific data -> Justification: A line chart is the most effective way to demonstrate a trend like poverty reduction over time. (Chart.js)
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4A4A4A;
+        }
+        .nav-link {
+            transition: color 0.3s, border-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #D97706;
+            border-bottom-color: #D97706;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .pill-button {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .pill-button.active {
+            background-color: #D97706;
+            color: white;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #D97706;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-amber-700">Poverty Dossier</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#definition" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Define & Measure</a>
+                        <a href="#causes" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Causes</a>
+                        <a href="#consequences" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Consequences</a>
+                        <a href="#solutions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Solutions</a>
+                        <a href="#casestudy" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Case Study</a>
+                         <a href="#gemini-insights" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700">Insights</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <select id="mobile-nav" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm rounded-md">
+                        <option value="#definition">Define & Measure</option>
+                        <option value="#causes">Causes</option>
+                        <option value="#consequences">Consequences</option>
+                        <option value="#solutions">Solutions</option>
+                        <option value="#casestudy">Case Study</option>
+                        <option value="#gemini-insights">Insights</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <section id="definition" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-4">Defining & Measuring Poverty</h2>
+            <p class="text-center max-w-3xl mx-auto text-gray-600 mb-12">Poverty is more than just a lack of income. This section explores how poverty is defined and measured globally, from the international poverty line to a more holistic, multidimensional view. Understanding these metrics is the first step to grasping the scale of the challenge.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-center">
+                <div class="card p-6">
+                    <h3 class="text-4xl font-bold text-amber-600">$2.15 / Day</h3>
+                    <p class="mt-2 text-gray-500">The International Poverty Line. People below this live in extreme poverty. (World Bank)</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-4xl font-bold text-amber-600" id="extremePovertyCount">682M</h3>
+                    <p class="mt-2 text-gray-500">People living in extreme poverty globally. (UN)</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-4xl font-bold text-amber-600" id="multidimensionalPovertyCount">1.1B</h3>
+                    <p class="mt-2 text-gray-500">People who are multidimensionally poor, facing deprivations in health, education, and living standards. (UNDP)</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                <div class="lg:col-span-3 card p-6">
+                    <h3 class="text-xl font-bold text-center mb-4">Extreme Poverty by Region</h3>
+                    <div class="chart-container">
+                        <canvas id="regionalPovertyChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 space-y-4">
+                     <div class="card p-6">
+                        <h4 class="font-bold text-lg text-amber-700">National Poverty Lines</h4>
+                        <p class="text-sm text-gray-600 mt-2">Countries also define their own poverty thresholds based on the cost of a basic 'basket of goods'. This results in vastly different lines, for example, between a developed nation like the <strong class="font-semibold">USA</strong> (where it reflects costs for food, housing, etc.) and a developing nation like <strong class="font-semibold">India</strong> (where it is primarily based on minimum calorie intake).</p>
+                     </div>
+                     <div class="card p-6">
+                        <h4 class="font-bold text-lg text-amber-700">Purchasing Power Parity (PPP)</h4>
+                        <p class="text-sm text-gray-600 mt-2">The $2.15 line is measured in PPP, which adjusts for differences in the cost of living between countries. It represents the same purchasing power for goods and services in any country.</p>
+                     </div>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                 <h3 class="text-2xl font-bold text-center text-amber-800 mb-6">Exploring the Types of Poverty</h3>
+                 <div class="max-w-4xl mx-auto">
+                    <div class="flex flex-wrap justify-center gap-2 mb-6">
+                        <button class="pill-button px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white text-gray-700" data-type="absolute">Absolute</button>
+                        <button class="pill-button px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white text-gray-700" data-type="relative">Relative</button>
+                        <button class="pill-button px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white text-gray-700" data-type="multidimensional">Multidimensional</button>
+                        <button class="pill-button px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white text-gray-700" data-type="situational">Situational</button>
+                        <button class="pill-button px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white text-gray-700" data-type="generational">Generational</button>
+                    </div>
+                    <div class="card p-6 min-h-[180px]">
+                        <div id="poverty-type-content">
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="causes" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-4">The Root Causes of Poverty</h2>
+            <p class="text-center max-w-3xl mx-auto text-gray-600 mb-12">Poverty is a complex problem with deep, interconnected roots. It is rarely the result of a single cause. This interactive diagram helps explore the structural, systemic, and environmental factors that create and perpetuate cycles of poverty around the world. Click on a cause to learn more.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1">
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-center">Categories of Causes</h3>
+                        <button class="cause-btn w-full text-left p-4 rounded-lg border border-gray-200 bg-white hover:bg-amber-50" data-cause="education">Lack of Education & Healthcare</button>
+                        <button class="cause-btn w-full text-left p-4 rounded-lg border border-gray-200 bg-white hover:bg-amber-50" data-cause="conflict">Conflict & Instability</button>
+                        <button class="cause-btn w-full text-left p-4 rounded-lg border border-gray-200 bg-white hover:bg-amber-50" data-cause="economic">Economic Systems & Inequality</button>
+                        <button class="cause-btn w-full text-left p-4 rounded-lg border border-gray-200 bg-white hover:bg-amber-50" data-cause="discrimination">Discrimination</button>
+                        <button class="cause-btn w-full text-left p-4 rounded-lg border border-gray-200 bg-white hover:bg-amber-50" data-cause="environment">Environmental Factors</button>
+                    </div>
+                </div>
+                <div class="md:col-span-2 card p-8">
+                    <div id="cause-detail-content">
+                        <h3 class="text-xl font-bold text-amber-700 mb-2">Select a Cause</h3>
+                        <p class="text-gray-600">Click on an item from the list to see detailed information about how it contributes to global poverty.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="consequences" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-4">Consequences of Poverty</h2>
+            <p class="text-center max-w-3xl mx-auto text-gray-600 mb-12">The impact of poverty extends far beyond an empty wallet. It creates a vicious cycle of poor health, limited opportunities, and vulnerability that affects individuals, communities, and entire nations. This section visualizes the stark disparities and severe consequences driven by poverty.</p>
+
+            <div class="card p-6">
+                <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-center mb-4 sm:mb-0">Comparing Outcomes: Low vs. High-Income Countries</h3>
+                    <select id="consequences-filter" class="form-select rounded-md border-gray-300">
+                        <option value="health" selected>Health Indicators</option>
+                        <option value="education">Education Indicators</option>
+                    </select>
+                </div>
+                <div class="chart-container" style="max-width: 800px; height: 400px;">
+                    <canvas id="consequencesChart"></canvas>
+                </div>
+            </div>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center">
+                    <div class="text-4xl text-amber-600 mb-2">●</div>
+                    <h4 class="font-bold text-lg">Vulnerability to Exploitation</h4>
+                    <p class="text-sm text-gray-600 mt-2">Poverty is a key driver of human trafficking, modern slavery, and child labour. An estimated <strong class="font-semibold">160 million children</strong> are engaged in child labour worldwide. (ILO)</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl text-amber-600 mb-2">●</div>
+                    <h4 class="font-bold text-lg">Economic Stagnation</h4>
+                    <p class="text-sm text-gray-600 mt-2">High poverty rates limit a country's tax base, consumer market, and potential for innovation, hindering overall economic growth and development.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl text-amber-600 mb-2">●</div>
+                    <h4 class="font-bold text-lg">Social & Political Instability</h4>
+                    <p class="text-sm text-gray-600 mt-2">Strong correlations exist between high levels of poverty and inequality and an increased risk of crime, social friction, and political unrest.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-4">Remedies & Solutions</h2>
+            <p class="text-center max-w-3xl mx-auto text-gray-600 mb-12">Tackling poverty requires a multi-pronged approach, from large-scale government policies and international aid to grassroots, community-led initiatives. Explore some of the key strategies being implemented worldwide to lift people out of poverty and build more resilient societies.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-amber-700">Top-Down Approaches</h3>
+                    <div class="accordion-container space-y-2">
+                        <div class="accordion-item">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-white border rounded-lg">
+                                <span class="font-semibold">Social Safety Nets</span>
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content bg-white border border-t-0 rounded-b-lg">
+                                <div class="p-4 text-sm text-gray-600">
+                                    These are programs designed to protect vulnerable families from shocks and provide a basic standard of living. They include cash transfers, food subsidies, and unemployment benefits.
+                                    <br><br><strong>Example:</strong> Brazil's Bolsa Família program provided cash transfers to low-income families on the condition that their children attended school and received vaccinations. It was credited with significantly reducing extreme poverty and inequality.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-white border rounded-lg">
+                                <span class="font-semibold">Investment in Public Services</span>
+                                <span>+</span>
+                            </button>
+                             <div class="accordion-content bg-white border border-t-0 rounded-b-lg">
+                                <div class="p-4 text-sm text-gray-600">
+                                   State-funded, universal access to high-quality education and healthcare is crucial for breaking intergenerational poverty cycles by improving human capital and enabling social mobility.
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-white border rounded-lg">
+                                <span class="font-semibold">International Aid & Debt Relief</span>
+                                <span>+</span>
+                            </button>
+                             <div class="accordion-content bg-white border border-t-0 rounded-b-lg">
+                                <div class="p-4 text-sm text-gray-600">
+                                    Foreign aid from wealthier countries and international bodies can fund critical development projects. Debt relief initiatives free up national budgets of heavily indebted poor countries, allowing them to spend more on health and education. The UN's Sustainable Development Goal 1 (SDG 1) is a global commitment to end poverty in all its forms.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-amber-700">Bottom-Up Approaches</h3>
+                    <div class="accordion-container space-y-2">
+                        <div class="accordion-item">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-white border rounded-lg">
+                                <span class="font-semibold">Microfinance</span>
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content bg-white border border-t-0 rounded-b-lg">
+                                <div class="p-4 text-sm text-gray-600">
+                                    This involves providing small loans, savings accounts, and other financial services to low-income individuals, particularly women, who lack access to traditional banking.
+                                    <br><br><strong>Example:</strong> The Grameen Bank in Bangladesh, founded by Nobel laureate Muhammad Yunus, pioneered microcredit and has empowered millions of women to start small businesses and escape poverty.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-white border rounded-lg">
+                                <span class="font-semibold">Empowerment of Women</span>
+                                <span>+</span>
+                            </button>
+                             <div class="accordion-content bg-white border border-t-0 rounded-b-lg">
+                                <div class="p-4 text-sm text-gray-600">
+                                   Evidence shows that investing in women's education, health, and economic opportunities is one of the most effective poverty-reduction strategies. When women have control over resources, they tend to invest more in their children's health and education, benefiting entire communities.
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-white border rounded-lg">
+                                <span class="font-semibold">NGO & Non-Profit Initiatives</span>
+                                <span>+</span>
+                            </button>
+                             <div class="accordion-content bg-white border border-t-0 rounded-b-lg">
+                                <div class="p-4 text-sm text-gray-600">
+                                    Non-governmental organizations often work at the community level to address specific needs.
+                                    <br><br><strong>Example:</strong> A project by WaterAid to build wells and sanitation facilities in a rural village can dramatically improve health outcomes, reduce the time women and children spend fetching water, and allow them to pursue education or economic activities.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="casestudy" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-4">Case Study: Vietnam's Success</h2>
+            <p class="text-center max-w-3xl mx-auto text-gray-600 mb-12">Many countries have made remarkable progress in the fight against poverty. Vietnam stands out as a powerful example of how targeted policies and economic transformation can lift tens of millions of people out of poverty in just a few decades. This chart illustrates Vietnam's journey.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-center mb-4">Vietnam's Poverty Rate Reduction (%)</h3>
+                     <div class="chart-container" style="max-width: 600px;">
+                        <canvas id="caseStudyChart"></canvas>
+                    </div>
+                </div>
+                 <div class="card p-6">
+                    <h4 class="font-bold text-lg text-amber-700 mb-3">Key Strategies Implemented:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-sm text-gray-600">
+                        <li><strong>Đổi Mới Reforms (1986):</strong> Shifted from a centrally planned economy to a "socialist-oriented market economy," encouraging private enterprise and foreign investment.</li>
+                        <li><strong>Agricultural Reforms:</strong> Granted long-term land use rights to farmers, boosting agricultural productivity and rural incomes.</li>
+                        <li><strong>Investment in Human Capital:</strong> Focused heavily on expanding access to primary education and basic healthcare services across the country.</li>
+                        <li><strong>Infrastructure Development:</strong> Invested in roads, ports, and electricity, which connected rural areas to markets and spurred economic activity.</li>
+                        <li><strong>Export-Oriented Growth:</strong> Became a major manufacturing hub for goods like textiles, footwear, and electronics, creating millions of jobs.</li>
+                    </ul>
+                 </div>
+            </div>
+        </section>
+        
+        <section id="gemini-insights" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-4">AI-Powered Synthesis & Insights</h2>
+            <p class="text-center max-w-3xl mx-auto text-gray-600 mb-12">Use the power of a large language model to help you synthesize the information in this dossier. Generate a comprehensive overview or ask a specific question to get a deeper insight on any topic.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-amber-700 mb-4">Generate Overview</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Get a high-level summary of the entire dossier, including key findings on definitions, causes, consequences, and solutions.</p>
+                    <button id="generateOverviewBtn" class="w-full bg-amber-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-700 transition duration-300">
+                        ✨ Generate Global Poverty Overview ✨
+                    </button>
+                    <div id="overview-response" class="mt-6 text-gray-700 text-sm leading-relaxed whitespace-pre-wrap"></div>
+                    <div id="overview-loading" class="mt-6 text-center hidden">
+                        <span class="loading-dot"></span>
+                        <span class="loading-dot"></span>
+                        <span class="loading-dot"></span>
+                    </div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-amber-700 mb-4">Ask a Question</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Ask a specific question about the content of this dossier to get a detailed insight.</p>
+                    <textarea id="askQuestionInput" class="w-full p-3 h-24 text-sm border rounded-lg focus:ring-amber-500 focus:border-amber-500" placeholder="e.g., How does environmental degradation contribute to poverty?"></textarea>
+                    <button id="askQuestionBtn" class="w-full bg-amber-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-700 transition duration-300 mt-4">
+                        ✨ Ask for a Deeper Insight ✨
+                    </button>
+                    <div id="question-response" class="mt-6 text-gray-700 text-sm leading-relaxed whitespace-pre-wrap"></div>
+                    <div id="question-loading" class="mt-6 text-center hidden">
+                        <span class="loading-dot"></span>
+                        <span class="loading-dot"></span>
+                        <span class="loading-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-16 border-t pt-8">
+            <p>This interactive dossier synthesizes research on the causes, consequences, and remedies of global poverty. The interconnected nature of these factors means that effective solutions must be holistic, addressing everything from education and health to economic policy and gender equality.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const data = {
+                regionalPoverty: {
+                    labels: ['Sub-Saharan Africa', 'South Asia', 'East Asia & Pacific', 'Latin America & Caribbean', 'Middle East & North Africa', 'Rest of World'],
+                    data: [60, 25, 5, 4, 3, 3], 
+                },
+                povertyTypes: {
+                    absolute: {
+                        title: 'Absolute Poverty',
+                        content: 'This is a condition where household income is below a level necessary to maintain basic living standards (food, shelter, housing). It does not change based on a country\'s overall wealth.<br><br><strong>Example:</strong> A family in rural Chad unable to secure enough food to avoid malnutrition.'
+                    },
+                    relative: {
+                        title: 'Relative Poverty',
+                        content: 'This is a condition where household income is a certain percentage below the median income of that country. It is a measure of inequality.<br><br><strong>Example:</strong> A family in London that can afford food and shelter but cannot afford winter heating, school uniforms, or for their children to participate in school trips.'
+                    },
+                    multidimensional: {
+                        title: 'Multidimensional Poverty',
+                        content: 'The Multidimensional Poverty Index (MPI) measures poverty beyond income. It considers overlapping deprivations in health (nutrition, child mortality), education (years of schooling), and living standards (water, sanitation, electricity, assets).<br><br><strong>Source:</strong> UNDP, OPHI'
+                    },
+                    situational: {
+                        title: 'Situational Poverty',
+                        content: 'This is a temporary type of poverty caused by an adverse event like a natural disaster, a serious illness, or a sudden job loss.<br><br><strong>Example:</strong> A family losing their home and livelihood in an earthquake, pushing them into poverty until they can rebuild.'
+                    },
+                    generational: {
+                        title: 'Generational Poverty',
+                        content: 'This is a type of poverty that is passed down through at least two generations. It is often perpetuated by systemic barriers and a lack of access to education and resources.<br><br><strong>Example:</strong> A family where grandparents, parents, and children have all lived in poverty due to limited educational opportunities and systemic discrimination.'
+                    }
+                },
+                causes: {
+                    education: {
+                        title: 'Lack of Access to Education & Healthcare',
+                        content: 'Without quality education, individuals cannot develop the skills needed for better-paying jobs, trapping them in low-wage work. Poor healthcare leads to lower productivity, high medical costs that can bankrupt families, and lower life expectancy. These factors prevent social mobility and perpetuate the poverty cycle across generations. For example, literacy rates in low-income countries are significantly lower than in high-income nations. (World Bank)'
+                    },
+                    conflict: {
+                        title: 'Conflict & Political Instability',
+                        content: 'War, civil unrest, and corrupt governance are major drivers of poverty. Conflict destroys infrastructure like schools and hospitals, displaces millions from their homes and farms, and brings economic activity to a halt. Countries like Yemen and Syria are stark examples where years of conflict have decimated the economy and created widespread humanitarian crises.'
+                    },
+                    economic: {
+                        title: 'Economic Systems & Inequality',
+                        content: 'Historical factors like colonialism have left many nations with underdeveloped economies. Today, issues like unfair international trade policies, crippling national debt, and extreme wealth concentration continue to fuel poverty. According to Oxfam, the world\'s richest 1% often hold more wealth than the bottom 50% combined, highlighting extreme inequality.'
+                    },
+                    discrimination: {
+                        title: 'Discrimination',
+                        content: 'Systemic discrimination based on gender, race, ethnicity, or caste creates significant barriers to escaping poverty. It can block access to education, fair employment, land ownership, and legal rights. For example, women, who make up a large portion of the agricultural workforce in developing nations, often have fewer rights and less access to resources like credit and land than men, limiting their economic potential.'
+                    },
+                    environment: {
+                        title: 'Environmental Factors',
+                        content: 'The poor are disproportionately affected by environmental degradation. Climate change causes more frequent and severe droughts, floods, and storms, destroying crops and livelihoods, particularly in agrarian societies. The Sahel region in Africa, for instance, faces growing desertification, threatening the food security of millions. Similarly, a single major natural disaster, like the 2010 Haiti earthquake, can wipe out years of development progress in a low-income country. (UNEP)'
+                    }
+                },
+                consequences: {
+                    health: {
+                        labels: ['Child Mortality (per 1,000)', 'Life Expectancy (years)'],
+                        lowIncome: [76, 64],
+                        highIncome: [4, 81]
+                    },
+                    education: {
+                        labels: ['Literacy Rate (%)', 'Expected Years of Schooling'],
+                        lowIncome: [65, 9],
+                        highIncome: [99, 17]
+                    }
+                },
+                caseStudy: {
+                    labels: ['1992', '2000', '2010', '2020', '2022'],
+                    data: [58, 32, 17.2, 5, 4.4]
+                }
+            };
+
+            const regionalPovertyCtx = document.getElementById('regionalPovertyChart').getContext('2d');
+            const regionalPovertyChart = new Chart(regionalPovertyCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: data.regionalPoverty.labels,
+                    datasets: [{
+                        label: '% of World\'s Extreme Poor',
+                        data: data.regionalPoverty.data,
+                        backgroundColor: ['#b45309', '#d97706', '#f59e0b', '#fbbf24', '#fcd34d', '#fef3c7'],
+                        borderColor: '#FDFBF8',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const pillButtons = document.querySelectorAll('.pill-button');
+            const povertyTypeContent = document.getElementById('poverty-type-content');
+            function updatePovertyType(type) {
+                const info = data.povertyTypes[type];
+                povertyTypeContent.innerHTML = `
+                    <h4 class="text-xl font-bold text-amber-700 mb-2">${info.title}</h4>
+                    <p class="text-gray-600 text-sm">${info.content}</p>
+                `;
+                pillButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.type === type);
+                });
+            }
+            pillButtons.forEach(button => {
+                button.addEventListener('click', () => updatePovertyType(button.dataset.type));
+            });
+            updatePovertyType('absolute');
+
+            const causeButtons = document.querySelectorAll('.cause-btn');
+            const causeDetailContent = document.getElementById('cause-detail-content');
+             function updateCauseDetail(causeKey) {
+                const cause = data.causes[causeKey];
+                causeDetailContent.innerHTML = `
+                    <h3 class="text-xl font-bold text-amber-700 mb-2">${cause.title}</h3>
+                    <p class="text-gray-600">${cause.content}</p>
+                `;
+                 causeButtons.forEach(btn => {
+                     btn.classList.toggle('bg-amber-100', btn.dataset.cause === causeKey);
+                     btn.classList.toggle('bg-white', btn.dataset.cause !== causeKey);
+                });
+            }
+            causeButtons.forEach(button => {
+                button.addEventListener('click', () => updateCauseDetail(button.dataset.cause));
+            });
+            updateCauseDetail('education');
+
+            let consequencesChart;
+            const consequencesCtx = document.getElementById('consequencesChart').getContext('2d');
+            const consequencesFilter = document.getElementById('consequences-filter');
+            function renderConsequencesChart(filter) {
+                if (consequencesChart) {
+                    consequencesChart.destroy();
+                }
+                const chartData = data.consequences[filter];
+                consequencesChart = new Chart(consequencesCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: chartData.labels,
+                        datasets: [
+                            {
+                                label: 'Low-Income Countries',
+                                data: chartData.lowIncome,
+                                backgroundColor: '#d97706',
+                                borderRadius: 4,
+                            },
+                            {
+                                label: 'High-Income Countries',
+                                data: chartData.highIncome,
+                                backgroundColor: '#fcd34d',
+                                borderRadius: 4,
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true }
+                        },
+                        plugins: {
+                           legend: { position: 'top' },
+                           tooltip: {
+                             callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y;
+                                    }
+                                    return label;
+                                }
+                             }
+                           }
+                        }
+                    }
+                });
+            }
+            consequencesFilter.addEventListener('change', (e) => renderConsequencesChart(e.target.value));
+            renderConsequencesChart('health');
+
+            const accordions = document.querySelectorAll('.accordion-item');
+            accordions.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                const icon = header.querySelector('span:last-child');
+                header.addEventListener('click', () => {
+                    const isOpen = content.style.maxHeight;
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                    document.querySelectorAll('.accordion-header span:last-child').forEach(i => i.textContent = '+');
+                    
+                    if (!isOpen) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.textContent = '-';
+                    }
+                });
+            });
+
+            const caseStudyCtx = document.getElementById('caseStudyChart').getContext('2d');
+            const caseStudyChart = new Chart(caseStudyCtx, {
+                type: 'line',
+                data: {
+                    labels: data.caseStudy.labels,
+                    datasets: [{
+                        label: 'Poverty Rate (%)',
+                        data: data.caseStudy.data,
+                        fill: true,
+                        backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                        borderColor: '#D97706',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) { return value + '%' }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.addEventListener('change', () => {
+                window.location.hash = mobileNav.value;
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 80) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            const generateOverviewBtn = document.getElementById('generateOverviewBtn');
+            const overviewResponseDiv = document.getElementById('overview-response');
+            const overviewLoadingDiv = document.getElementById('overview-loading');
+            const askQuestionInput = document.getElementById('askQuestionInput');
+            const askQuestionBtn = document.getElementById('askQuestionBtn');
+            const questionResponseDiv = document.getElementById('question-response');
+            const questionLoadingDiv = document.getElementById('question-loading');
+
+            const API_KEY = "";
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+            const fullDossierContent = `
+                Dossier Content:
+                Global Poverty:
+                - Defined by World Bank as living on less than $2.15/day.
+                - 682M people in extreme poverty, 1.1B are multidimensionally poor.
+                - Types of poverty: Absolute (basic needs), Relative (below median income), Multidimensional (deprivations in health/education/living standards), Situational (from a disaster), Generational (passed down).
+                - Regional distribution: Sub-Saharan Africa (60%), South Asia (25%), etc.
+                Causes:
+                - Lack of Education & Healthcare: Limits job skills and productivity.
+                - Conflict & Political Instability: Destroys infrastructure, displaces people.
+                - Economic Systems: Unfair trade, debt, inequality.
+                - Discrimination: Blocks access to jobs and resources.
+                - Environmental Factors: Climate change, natural disasters destroy livelihoods.
+                Consequences:
+                - Health: Low-income countries have higher child mortality (76 vs 4) and lower life expectancy (64 vs 81).
+                - Education: Low-income countries have lower literacy (65% vs 99%) and fewer expected years of schooling (9 vs 17).
+                - Social: Vulnerability to exploitation, economic stagnation, political instability.
+                Solutions:
+                - Top-Down: Social safety nets (e.g., Brazil's Bolsa Família), public service investment, international aid.
+                - Bottom-Up: Microfinance (e.g., Grameen Bank), women's empowerment, NGO initiatives (e.g., WaterAid).
+                Case Study:
+                - Vietnam reduced its poverty rate from 58% in 1992 to 4.4% in 2022.
+                - Key strategies: Market reforms (Đổi Mới), agricultural reforms, human capital investment, infrastructure development, and export-oriented growth.
+            `;
+
+            async function callGeminiAPI(prompt, responseDiv, loadingDiv) {
+                responseDiv.textContent = '';
+                loadingDiv.classList.remove('hidden');
+
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }],
+                    systemInstruction: {
+                        parts: [{ text: "You are a helpful assistant for a global poverty dossier. Respond based on the provided content. If the user's question is outside the scope of the dossier, state that the information is not covered." }]
+                    },
+                    tools: [{ "google_search": {} }]
+                };
+
+                let retries = 0;
+                const maxRetries = 3;
+                while (retries < maxRetries) {
+                    try {
+                        const response = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                             throw new Error(`API call failed with status: ${response.status}`);
+                        }
+
+                        const result = await response.json();
+                        const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                        responseDiv.textContent = text || 'Sorry, I couldn\'t generate a response.';
+                        break;
+                    } catch (error) {
+                        retries++;
+                        if (retries >= maxRetries) {
+                            console.error('Failed to fetch after multiple retries:', error);
+                            responseDiv.textContent = 'Sorry, there was an error. Please try again later.';
+                        } else {
+                            await new Promise(res => setTimeout(res, Math.pow(2, retries) * 1000));
+                        }
+                    }
+                }
+                loadingDiv.classList.add('hidden');
+            }
+
+            generateOverviewBtn.addEventListener('click', () => {
+                const prompt = `Based on the following dossier content, provide a comprehensive, 2-3 paragraph overview that synthesizes the key points on poverty definition, causes, consequences, and solutions.
+                Dossier Content:
+                ${fullDossierContent}
+                `;
+                callGeminiAPI(prompt, overviewResponseDiv, overviewLoadingDiv);
+            });
+
+            askQuestionBtn.addEventListener('click', () => {
+                const userQuestion = askQuestionInput.value.trim();
+                if (userQuestion === '') return;
+
+                const prompt = `Based on the following dossier content, answer this question: "${userQuestion}"
+                Dossier Content:
+                ${fullDossierContent}
+                `;
+                callGeminiAPI(prompt, questionResponseDiv, questionLoadingDiv);
+            });
+        });
+    </script>
+</body>
+</html>
