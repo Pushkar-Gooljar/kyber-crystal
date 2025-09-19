@@ -1,9 +1,3 @@
-Here are your notes on Electronegativity and Bonding, in Markdown for Obsidian, complete yet lightweight:
-
----
-
-# Electronegativity & Bonding
-
 ## Learning Outcomes Checklist:
 
 - [ ] Define electronegativity.
@@ -13,30 +7,46 @@ Here are your notes on Electronegativity and Bonding, in Markdown for Obsidian, 
 
 ---
 
-## 1. Definition of Electronegativity
-
-**Electronegativity:** The **power of an atom to attract electrons to itself in a covalent bond.**
-*   It's a relative scale, not an absolute energy value.
-*   Measured on scales like the Pauling scale.
+## 1. Definition
+- Electronegativity is the power of an atom to attract electrons to itself
+	- It is a relative scale, not an absolute energy value.
+	- It is measured on the Pauling scale, a relative scale from 0 to 4.0
+	- Fluorine is the most electronegative element (4.0)
 
 ---
+## 2. Factors influencing electronegativity 
+- The factors influencing electronegativity are the same ones that influence ionisation energy.
 
-## 2. Factors Influencing Electronegativity
+**An atom's ability to attract bonding electrons depend on:**
+1. **Nuclear Charge (Number of protons)**
+	- **Higher nuclear charge** $\to$ stronger electrostatic attraction between nucleus and bonding electrons
+	- Atom able to attract electrons **more strongly** $\rightarrow$ **Higher** electronegativity
+2. **Atomic Radius**
+	- **Larger atomic radius (more electron shells)** $\rightarrow$ bonding electrons further from nucleus $\rightarrow$ weaker electrostatic attraction
+	- Atom able to attract electrons **less strongly** $\rightarrow$ **Lower** electronegativity 
+3. **Shielding Effect from Inner Electrons**
+	- **Greater shielding by inner electrons** $\rightarrow$ inner shells repel the bonding electrons  $\rightarrow$ 'shielding' them from the full attractive force of the nucleus $\rightarrow$ reduced effective nuclear charge
+	- Atom able to attract electrons **less strongly** $\rightarrow$ **Lower** electronegativity
+	- **NOTE:** Shielding by subshells (e.g. $\mathrm{d}$ or $\mathrm{f}$ electrons) can further increase shielding effects.
 
-Electronegativity is influenced by the same factors that affect attraction between the nucleus and outer electrons:
 
-1.  **Nuclear Charge (Number of Protons):**
-    *   **Higher nuclear charge** $\rightarrow$ stronger attraction for bonding electrons $\rightarrow$ **higher electronegativity**.
 
-2.  **Atomic Radius (Distance from Nucleus):**
-    *   **Larger atomic radius** (more electron shells) $\rightarrow$ bonding electrons further from nucleus $\rightarrow$ weaker attraction $\rightarrow$ **lower electronegativity**.
-
-3.  **Shielding Effect from Inner Electrons:**
+4.  **Shielding Effect from Inner Electrons:**
     *   **Greater shielding** by inner shells $\rightarrow$ reduces effective nuclear charge felt by bonding electrons $\rightarrow$ weaker attraction $\rightarrow$ **lower electronegativity**.
     *   *Note:* Shielding by subshells (e.g., d or f electrons) can further increase shielding effects.
 
 ---
 
+## 3. Trends in electronegativity 
+
+### Across a Period 
+- Trend: Electronegativity increases 
+- Explanation: 
+	- Nuclear charge increases (more protons)
+	- **Atomic radius decreases**: electrons pulled in more tightly by stronger nuclear charge.
+	- **Shielding** by inner shells remains **relatively** constant 
+- Result: The stronger nuclear charge and smaller distance cause a greater electrostatic attraction for bonding electrons.
+- 
 ## 3. Trends in Electronegativity
 
 ### Across a Period (e.g., Na to Cl)
