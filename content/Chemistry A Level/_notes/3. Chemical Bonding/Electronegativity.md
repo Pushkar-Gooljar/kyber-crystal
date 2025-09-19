@@ -39,56 +39,56 @@
 
 ## 3. Trends in electronegativity 
 
+<figure>
+  <img src="https://learnwithdrscott.com/wp-content/uploads/2020/10/electronegativity-trend-1024x576.jpg" class="custom-img">
+  <figcaption>Electronegativity increases from bottom left to top right of periodic table</figcaption>
+</figure>
+
 ### Across a Period 
-- Trend: Electronegativity increases 
+- Trend: Electronegativity **increases**.
 - Explanation: 
 	- Nuclear charge increases (more protons)
 	- **Atomic radius decreases**: electrons pulled in more tightly by stronger nuclear charge.
 	- **Shielding** by inner shells remains **relatively** constant 
 - Result: The stronger nuclear charge and smaller distance cause a greater electrostatic attraction for bonding electrons.
-- 
-## 3. Trends in Electronegativity
 
-### Across a Period (e.g., Na to Cl)
-
-*   **Trend:** Electronegativity **increases** across a period.
-*   **Explanation:**
-    *   **Nuclear Charge:** Increases (more protons).
-    *   **Atomic Radius:** Decreases slightly (electrons added to same shell, pulled in more tightly).
-    *   **Shielding:** Remains relatively constant (same number of inner shells).
-    *   **Overall:** Increased nuclear charge with relatively constant shielding and decreasing atomic radius leads to a stronger attraction for bonding electrons.
-
-### Down a Group (e.g., Li to Cs)
-
-*   **Trend:** Electronegativity **decreases** down a group.
-*   **Explanation:**
-    *   **Nuclear Charge:** Increases (more protons).
-    *   **Atomic Radius:** Increases (more electron shells).
-    *   **Shielding:** Increases (more inner electron shells).
-    *   **Overall:** The increase in atomic radius and shielding outweighs the increase in nuclear charge, resulting in a weaker attraction for bonding electrons.
+### Down a group 
+- Trend: Electronegativity **decreases**.
+- Explanation: 
+	- Atomic radius increases due to more electron shells.
+	- Shielding by inner shells increases significantly.
+	- ==These two factors outweigh the increase in nuclear charge==
+- Result: Increased atomic radius and greater shielding effect result in a weaker electrostatic attraction for bonding electrons.
 
 **Summary:**
-*   **Most Electronegative:** Fluorine (F) is the most electronegative element.
-*   **Least Electronegative:** Francium (Fr) is the least electronegative element (or Caesium, Cs, commonly used).
-*   Noble gases (Group 18) are generally not assigned electronegativity values as they do not readily form covalent bonds.
+- **Most Electronegative:** Fluorine (F) is the most electronegative element.
+- **Least Electronegative:** Francium (Fr) is the least electronegative element (or Caesium, Cs, commonly used).
+
+>[!danger] Critical 
+>Noble gases are **not** assigned electronegativity values as they generally do not form covalent bonds
+
+
 
 ---
 
-## 4. Predicting Bond Type (Pauling Electronegativity Differences)
+## 4. Predicting bond types (Pauling electronegativity differences)
 
-The **difference in electronegativity (ΔEN)** between two bonded atoms helps predict the type of bond:
+- The difference in electronegativity $\Delta \mathrm{EN}$ between two bonded atoms helps predict the type of bond:
 
-*   **Ionic Bond:**
-    *   **ΔEN is large** (typically **> 1.8 - 2.0** on the Pauling scale).
-    *   One atom is much more electronegative and essentially "takes" the bonding electrons, forming ions.
-    *   Example: Na (0.9) and Cl (3.2) $\rightarrow$ ΔEN = 2.3 $\rightarrow$ Ionic (NaCl)
+|     Bond Type     | $\Delta\mathrm{EN}$ |    Example    |
+| :---------------: | :-----------------: | :-----------: |
+|   Pure covalent   |         $0$         | $\ce{H_{2}}$  |
+| Nonpolar covalent |       $< 0.4$       | $\ce{CH_{4}}$ |
+|  Polar covalent   |     $0.4 -1.7$      |  $\ce{HCl}$   |
+|       Ionic       |       $> 1.7$       |  $\ce{NaF}$   |
 
-*   **Covalent Bond:**
-    *   **ΔEN is small or zero** (typically **< 0.4 - 0.5**).
-    *   Electrons are shared relatively equally.
-    *   **Non-polar Covalent:** ΔEN $\approx$ 0 (e.g., O$_2$, Cl$_2$).
-    *   **Polar Covalent:** 0 < ΔEN < 1.8-2.0. Electrons are shared unequally, leading to partial charges ($\delta+$ and $\delta-$).
-    *   Example: C (2.5) and H (2.2) $\rightarrow$ ΔEN = 0.3 $\rightarrow$ Non-polar covalent (C-H in CH$_4$)
-    *   Example: H (2.2) and Cl (3.2) $\rightarrow$ ΔEN = 1.0 $\rightarrow$ Polar covalent (HCl)
-
-**Important Note:** The exact cut-off values (e.g., 1.8, 2.0) can vary slightly depending on the source, but the principle of large difference = ionic, small difference = covalent (with polarity in between) remains consistent. Pauling values will be provided in exams.
+**Covalent Bond:**
+- $\Delta\mathrm{EN} = 0$ : Pure covalent bond
+	- Electrons are shared equally 
+- $\Delta\mathrm{EN} < 0.4$ : Nonpolar covalent bond
+	- Electrons are shared relatively equally
+- $0.4 \leq\Delta\mathrm{EN} \leq 1.7$ : Polar covalent bond
+	- Electrons are shared unequally, leading to partial charges ($\delta+$ and $\delta-$).
+**Ionic Bond:**
+- $\mathrm{\Delta EN} > 1.7$ : Ionic bond
+	- One atom is much more electronegative and essentially "takes" the bonding electrons, forming ions.
