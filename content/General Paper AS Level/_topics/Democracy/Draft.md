@@ -1,0 +1,1 @@
+Democracy Protects Fundamental Human Rights.

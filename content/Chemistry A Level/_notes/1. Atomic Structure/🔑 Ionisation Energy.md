@@ -56,6 +56,33 @@ $$
 - For the second ionisation energy, the enthalpy change is equal to $\ce{IE_{1} + IE_{2}}$
 - And so on for more successive ionisation energies.
 
+### Variations in successive ionisation energy
+<figure>
+  <img src="https://cdn.jsdelivr.net/gh/pushkar-gooljar/kyber-crystal/_images/successive_ie_of_mg.png" class="custom-img" style="max-height: 400px !important;">
+  <figcaption>Successive ionisation energies of magnesium</figcaption>
+</figure>
+
+**As more and more electrons are remove from an atom/ion, there is a general increase in ionisation energy. This is because:**
+- Once an electron has been removed from an atom/ion, there is less repulsion between the remaining electrons.
+- These remaining electrons are pulled closer to the nucleus
+- Distance between outermost electron and nucleus decreases, leading to stronger force of electrostatic attraction.
+- More energy is needed to remove the outermost electron
+
+### Interpreting successive ionisation energies
+<figure>
+  <img src="https://cdn.jsdelivr.net/gh/pushkar-gooljar/kyber-crystal/_images/successive_ie_of_mg.png" class="custom-img" style="max-height: 400px !important;">
+  <figcaption>Successive ionisation energies of magnesium</figcaption>
+</figure>
+**Taking magnesium as example:**
+- The outermost shell contains 2 electrons, therefore $\mathrm{IE_{1}}$ and $\mathrm{IE_{2}}$ will remove electrons from the outermost shell.
+- $\mathrm{IE_{3}}$ starts removing electrons from an inner shell, a big jump in ionisation energy is seen between $\mathrm{IE_{2}}$ and $\mathrm{IE_{3}}$, this is because:
+	- As electrons start being removed from an inner shell, there is less shielding so electrons feel a greater effective nuclear charge.
+	- Electrons are closer to the nucleus.
+	- Greater force of electrostatic attraction and more energy needed to remove electrons.
+
+#### Deducing electronic configuration from successive ionisation energies
+- Since there are large jumps when there is a change in the shell from which electrons are being removed, the electronic configuration of an atom can be deduced as we know when shells change and how many electrons are in a shell.
+- Since electrons are removed from outer shells first, we will get the electronic configuration in reverse.
 
 ## Factors influencing ionisation energy
 - Ionisation energy depends on the force of attraction between the positively charged nucleus and the negatively charged outermost electron (how hard it is to remove the electron).
@@ -113,8 +140,10 @@ $$
 - The effect of spin-pair repulsion is particularly noticeable between group 15 and 16 first ionisation energies.
 - Group 15 electronic configurations end with $\mathrm{ns^2np^3}$ while group 16 electronic configurations end with $\mathrm{ns^2np^4}$
 - In electron in box notation:
-	- Group 15: ![[Pasted image 20250917222152.png|124x30]]
-	- Group 16: ![[Pasted image 20250917222408.png|124x30]]
+	- Group 15: <img src="https://cdn.jsdelivr.net/gh/pushkar-gooljar/kyber-crystal/_images/gp15ending.png" width="124" height="30">
+	- Group 16:  <img src="https://cdn.jsdelivr.net/gh/pushkar-gooljar/kyber-crystal/_images/gp16ending.png" width="124" height="30">
+
+
 - As you can see, group 16 elements have two paired electrons in one p orbital
 - This will lead to spin-pair repulsion, which will in turn lead to an ionisation energy that is less than expected
 
@@ -147,11 +176,22 @@ $$
 
 ## Trends in ionisation energy
 ### Trend down a group
-<figure><div class="sme-img-ctn cc"><img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/649951be-928f-4957-aed9-adac63bba36a/first-ionisation-energy-group-2.png" style="height:300px;"></div><figcaption>First ionisation energies of group 2 elements</figcaption></figure>
-Down any group, there is a general decrease in ionisation energy.
+<figure><div class="sme-img-ctn cc"><img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/649951be-928f-4957-aed9-adac63bba36a/first-ionisation-energy-group-2.png" class="custom-img"></div><figcaption>First ionisation energies of group 2 elements</figcaption></figure>
+
+**Down any group, there is a general decrease in ionisation energy:**
 - Down the group atomic radii increases due to increase in number of shells. Distance between nucleus and outermost electron increases, force of electrostatic attraction is weaker, less energy is needed to remove an electron.
 - Since number of shells increases, the outermost electron is more shielded from the nuclear charge. Effective nuclear charge decreases, force of electrostatic attraction is weaker, less energy is needed to remove an electron.
+- Ionisation energy decreases.
 - ==The increased shielding and greater distance of outermost electron from nucleus outweighs the increase in nuclear charge down a group.==
 
 ### Trend across a period
-<figure><div class="sme-img-ctn cc"><img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/28677575-721f-409d-90cd-808bb7e01d63/first-ionisation-energy-period-3.png" style="height:300px;"></div><figcaption>First ionisation energies of period 3 elements</figcaption></figure>
+<figure><img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/28677575-721f-409d-90cd-808bb7e01d63/first-ionisation-energy-period-3.png" class="custom-img"><figcaption>First ionisation energies of period 3 elements</figcaption></figure>
+
+**Across any period there is a general increase in ionisation energy:**
+- Across a period, nuclear charge increase.
+- While shielding effect remains relatively unchanged as electrons are added to the same shell.
+- There is a stronger force of electrostatic attraction between the outermost electron and nucleus.
+- More energy is needed to remove the outermost electron.
+- Ionisation energy increases.
+
+See [[#Spin-pair repulsion causing anomalies in ionisation energy|Anomaly due to spin-pair repulsion]] and [[#5. Presence of subshells|Anomaly due to subshells]] for exceptions in the trend along period 3.
