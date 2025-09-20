@@ -92,3 +92,4 @@
 **Ionic Bond:**
 - $\mathrm{\Delta EN} > 1.7$ : Ionic bond
 	- One atom is much more electronegative and essentially "takes" the bonding electrons, forming ions.
+

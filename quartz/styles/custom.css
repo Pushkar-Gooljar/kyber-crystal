@@ -1,0 +1,59 @@
+img {
+    vertical-align: middle;
+}
+
+.sme-img-ctn {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 0;
+    width: 100%;
+    
+} 
+
+.sme-img-ctn img{
+    padding: 20px;
+}
+
+.cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+figcaption {
+    text-align: center;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.excalidraw-svg {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.excalidraw-svg .excalidraw-embedded-img {
+    border-radius: 10px;
+    padding: 16px;
+    background-color: white;
+}
+
+.custom-img {
+  width: 100%;       /* Try to fill container width */
+  height: auto;      /* Keep aspect ratio */
+  max-height: 300px; /* Limit height */
+  object-fit: contain;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}

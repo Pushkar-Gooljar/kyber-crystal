@@ -24,6 +24,7 @@ export default ((opts?: Options) => {
             </li>
           ))}
         </ul>
+        <script src="/static/scripts/interactive-checkboxes.js" defer></script>
       </footer>
     )
   }
