@@ -1,7 +1,8 @@
-- Ionic bonding is the strong electrostatic attraction between oppositely charged ions. (positively charged cations and negatively charged anions)
-- Ionic bonds are formed by the complete transfer of one or more electrons from a metal atom to a non-metal atom
+>[!info] Definition
+>- Ionic bonding is the strong **electrostatic attraction** between oppositely charged ions (positively charged **cations** and negatively charged **anions**).
+>- Ionic bonds are formed by the **complete transfer** of one or more electrons from a metal atom to a non-metal atom
 
-## Structure of ionic compounds
+## 💎 Structure of ionic compounds
 - Ionic compounds do not exist as simple pairs of ions. Instead they form a **giant ionic lattice**.
 
 <figure>
@@ -14,7 +15,7 @@
 	- **Bonding**: Each ion is electrostatically attracted to all oppositely charged ions surrounding it. These forces act in all directions.
 	- **Overall charge**: The lattice is electrically **neutral** because the total positive charge from the cations is cancelled out by the total negative charged from the anions.
 
-## Properties of ionic compounds
+## ✨Properties of ionic compounds
 The properties of ionic compounds result from their lattice structure.
 1. **High melting and boiling points**: A large amount of thermal energy is required to overcome the strong electrostatic forces of attraction between the oppositely charged ions and break down the lattice.
 2. **Electrical conductivity**:
@@ -24,10 +25,12 @@ The properties of ionic compounds result from their lattice structure.
 	- **Soluble in polar solvents (like water)**: Water molecules, which are polar, attract the charged ions in the lattice via ion-dipole forces, pulling them away from the lattice and dissolving the structure.
 	- **Insoluble in non-polar solvents**: Non-polar molecules cannot overcome the strong electrostatic forces between the ions.
 
-## Factors influencing strength of ionic bonding
-- The strength of an ionic bond is measured by its [[lattice energy]].
-- [[Factors affecting lattice energy]] will influence the strength of an ionic bond.
-- The strength of an ionic bond will determine properties like melting and boiling points.
+## ⚖️ Factors influencing strength of ionic bonding
+
+>[!abstract] Summary
+>- The strength of an ionic bond is measured by its [[lattice energy]].
+>- [[Factors affecting lattice energy]] will influence the strength of an ionic bond.
+>- The strength of an ionic bond will determine properties like melting and boiling points.
 
 >[!example]
 >Which compound has a higher melting point, $\ce{NaCl}$ or $\ce{KCl}$? Explain.
