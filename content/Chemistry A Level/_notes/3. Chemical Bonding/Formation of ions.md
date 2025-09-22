@@ -37,6 +37,7 @@
   <img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/7d11ea25-b363-45fc-a5bb-f02c7cd17b79/MP1%402x%20%2822%29.png" class="custom-img">
   <figcaption></figcaption>
 </figure>
+
 ### Transition elements
 - Unlike main group elements, transition elements have partially filled $\mathrm{d}$ subshells.
 - Electrons are removed from the $\mathrm{4s}$ subshell and then the $\mathrm{3d}$ subshell.

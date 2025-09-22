@@ -19,8 +19,8 @@
 The properties of ionic compounds result from their lattice structure.
 1. **High melting and boiling points**: A large amount of thermal energy is required to overcome the strong electrostatic forces of attraction between the oppositely charged ions and break down the lattice.
 2. **Electrical conductivity**:
-	- **Solid: do not conduct electricity**. The ions are held in fixed positions within the lattice and are not free to move as charge carriers.
-	- **Molten or Aqueous: Conducts electricity.** The lattice structure is broken down, the ions are mobile, allowing them to move and carry a a current.
+	- **Does not conduct electricity in solid form:**  The ions are held in fixed positions within the lattice and are not free to move as charge carriers.
+	- **Conducts electricity when molten or in aqueous solution:** The lattice structure is broken down, the ions are mobile, allowing them to move and carry a a current.
 3. **Solubility**:
 	- **Soluble in polar solvents (like water)**: Water molecules, which are polar, attract the charged ions in the lattice via ion-dipole forces, pulling them away from the lattice and dissolving the structure.
 	- **Insoluble in non-polar solvents**: Non-polar molecules cannot overcome the strong electrostatic forces between the ions.
