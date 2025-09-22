@@ -49,3 +49,6 @@
 - in an ideal democracy, only people with a sound, rational, mind should be allowed to vote, but someone needs to decide what qualifies as sound and rational, which can paradoxically lead to worse results 
 
 organise my ideas and give me any more ideas you can think of
+
+
+While democracy itself is the antonym of tyranny, it is a tool that can, and has been exploited as a backdoor for tyranny to seep itself into the government. A striking example of this, Adolf Hitler won the elections in 1933, and immediately started transitioning the system 

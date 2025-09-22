@@ -1,4 +1,104 @@
 ---
 dg-publish: true
 ---
-Chemical bonding 3.1 Electronegativity and bonding Learning outcomes Candidates should be able to: 1 define electronegativity as the power of an atom to attract electrons to itself 2 explain the factors influencing the electronegativities of the elements in terms of nuclear charge, atomic radius and shielding by inner shells and sub-shells 3 state and explain the trends in electronegativity across a period and down a group of the Periodic Table 4 use the differences in Pauling electronegativity values to predict the formation of ionic and covalent bonds (the presence of covalent character in some ionic compounds will not be assessed) (Pauling electronegativity values will be given where necessary) 3.2 Ionic bonding Learning outcomes Candidates should be able to: 1 define ionic bonding as the electrostatic attraction between oppositely charged ions (positively charged cations and negatively charged anions) 2 describe ionic bonding including the examples of sodium chloride, magnesium oxide and calcium fluoride Cambridge International AS & A Level Chemistry 9701 syllabus for 2025, 2026 and 2027. Subject content 20www.cambridgeinternational.org/alevelBack to contents page 3.3 Metallic bonding Learning outcomes Candidates should be able to: 1 define metallic bonding as the electrostatic attraction between positive metal ions and delocalised electrons 3.4 Covalent bonding and coordinate (dative covalent) bonding Learning outcomes Candidates should be able to: 1 define covalent bonding as electrostatic attraction between the nuclei of two atoms and a shared pair of electrons (a) describe covalent bonding in molecules including: • hydrogen, H2 • oxygen, O2 • nitrogen, N2 • chlorine, Cl 2 • hydrogen chloride, HCl • carbon dioxide, CO2 • ammonia, NH3 • methane, CH4 • ethane, C2H6 • ethene, C2H4 (b) understand that elements in period 3 can expand their octet including in the compounds sulfur dioxide, SO2, phosphorus pentachloride, PCl 5 , and sulfur hexafluoride, SF6 (c) describe coordinate (dative covalent) bonding, including in the reaction between ammonia and hydrogen chloride gases to form the ammonium ion, NH4 + , and in the Al 2Cl 6 molecule 2 (a) describe covalent bonds in terms of orbital overlap giving σ and π bonds: • σ bonds are formed by direct overlap of orbitals between the bonding atoms • π bonds are formed by the sideways overlap of adjacent p orbitals above and below the σ bond (b) describe how the σ and π bonds form in molecules including H₂, C₂H₆, C₂H₄, HCN and N₂ (c) use the concept of hybridisation to describe sp, sp² and sp³ orbitals 3 (a) define the terms: • bond energy as the energy required to break one mole of a particular covalent bond in the gaseous state • bond length as the internuclear distance of two covalently bonded atoms (b) use bond energy values and the concept of bond length to compare the reactivity of covalent molecules Cambridge International AS & A Level Chemistry 9701 syllabus for 2025, 2026 and 2027. Subject content 21www.cambridgeinternational.org/alevelBack to contents page 3.5 Shapes of molecules Learning outcomes Candidates should be able to: 1 state and explain the shapes of, and bond angles in, molecules by using VSEPR theory, including as simple examples: • BF3 (trigonal planar, 120°) • CO2 (linear, 180°) • CH4 (tetrahedral, 109.5°) • NH3 (pyramidal, 107°) • H2O (non-linear, 104.5°) • SF6 (octahedral, 90°) • PF5 (trigonal bipyramidal, 120° and 90°) 2 predict the shapes of, and bond angles in, molecules and ions analogous to those specified in 3.5.1 3.6 Intermolecular forces, electronegativity and bond properties Learning outcomes Candidates should be able to: 1 (a) describe hydrogen bonding, limited to molecules containing N–H and O–H groups, including ammonia and water as simple examples (b) use the concept of hydrogen bonding to explain the anomalous properties of H₂O (ice and water): • its relatively high melting and boiling points • its relatively high surface tension • the density of the solid ice compared with the liquid water 2 use the concept of electronegativity to explain bond polarity and dipole moments of molecules 3 (a) describe van der Waals’ forces as the intermolecular forces between molecular entities other than those due to bond formation, and use the term van der Waals’ forces as a generic term to describe all intermolecular forces (b) describe the types of van der Waals’ forces: • instantaneous dipole–induced dipole (id-id) forces, also called London dispersion forces • permanent dipole–permanent dipole (pd-pd) forces, including hydrogen bonding (c) describe hydrogen bonding and understand that hydrogen bonding is a special case of permanent dipole–permanent dipole forces between molecules where hydrogen is bonded to a highly electronegative atom 4 state that, in general, ionic, covalent and metallic bonding are stronger than intermolecular forces Cambridge International AS & A Level Chemistry 9701 syllabus for 2025, 2026 and 2027. Subject content 22www.cambridgeinternational.org/alevelBack to contents page 3.7 Dot-and-cross diagrams Learning outcomes Candidates should be able to: 1 use dot-and-cross diagrams to illustrate ionic, covalent and coordinate bonding including the representation of any compounds stated in 3.4 and 3.5 (dot-and-cross diagrams may include species with atoms which have an expanded octet or species with an odd number of electrons)
+Of course. Here are the compiled revision notes on Ionic Bonding for CIE A Level Chemistry (9701), created from the provided documents and my own knowledge base, formatted for Obsidian.md.
+
+---
+
+# Ionic Bonding
+
+> Ionic bonding is the strong electrostatic force of attraction between oppositely charged ions (cations and anions), formed by the complete transfer of one or more electrons from a metal atom to a non-metal atom.
+
+---
+
+## 1. Formation of Ions
+
+The goal of ionic bonding is for atoms to achieve a stable, full outer electron shell, resembling the configuration of a noble gas.
+
+### Cations (Positive Ions)
+- **Metals** (from Groups 1, 2, 13) tend to **lose** all their valence electrons.
+- Losing negatively charged electrons results in the formation of a positively charged ion called a **cation**.
+- **Example: Sodium (Na)**
+    - Neutral Atom: `Na` has the electron configuration `1s² 2s² 2p⁶ 3s¹`.
+    - To achieve a stable octet, it loses its single 3s electron.
+    - Cation: `Na⁺` has the configuration `1s² 2s² 2p⁶` (same as Neon).
+
+### Anions (Negative Ions)
+- **Non-metals** (from Groups 15, 16, 17) tend to **gain** electrons to complete their valence shell.
+- Gaining negatively charged electrons results in the formation of a negatively charged ion called an **anion**.
+- **Example: Chlorine (Cl)**
+    - Neutral Atom: `Cl` has the electron configuration `1s² 2s² 2p⁶ 3s² 3p⁵`.
+    - To achieve a stable octet, it gains one electron into its 3p subshell.
+    - Anion: `Cl⁻` has the configuration `1s² 2s² 2p⁶ 3s² 3p⁶` (same as Argon).
+
+### Predicting Ion Charges
+- **Main Group Elements:** The charge can be predicted from the group number.
+    - **Group 1:** Lose 1 e⁻ → `+1` (e.g., `Li⁺`, `Na⁺`, `K⁺`)
+    - **Group 2:** Lose 2 e⁻ → `+2` (e.g., `Mg²⁺`, `Ca²⁺`)
+    - **Group 13:** Lose 3 e⁻ → `+3` (e.g., `Al³⁺`)
+    - **Group 15:** Gain 3 e⁻ → `-3` (e.g., `N³⁻`)
+    - **Group 16:** Gain 2 e⁻ → `-2` (e.g., `O²⁻`, `S²⁻`)
+    - **Group 17:** Gain 1 e⁻ → `-1` (e.g., `F⁻`, `Cl⁻`)
+- **Transition Metals:** Can form ions with variable charges (e.g., `Fe²⁺` and `Fe³⁺`) because the energies of the 4s and 3d sub-shells are very close.
+
+---
+
+## 2. The Giant Ionic Lattice
+
+Ionic compounds do not exist as simple pairs of ions. Instead, they form a **giant ionic lattice**, which is a continuous three-dimensional crystalline structure.
+
+- **Structure:** A regular, repeating arrangement of alternating cations and anions.
+- **Bonding:** Each ion is electrostatically attracted to *all* of the oppositely charged ions surrounding it. These forces act in all directions.
+- **Overall Charge:** The lattice is electrically **neutral** because the total positive charge from the cations is cancelled out by the total negative charge from the anions.
+
+
+*A general representation of an ionic lattice structure.*
+
+---
+
+## 3. Properties of Ionic Compounds
+
+The properties of ionic compounds are a direct result of the strong forces within the giant ionic lattice.
+
+- **High Melting & Boiling Points:** A large amount of thermal energy is required to overcome the strong electrostatic forces of attraction between the ions and break down the lattice.
+- **Electrical Conductivity:**
+    - **Solid:** Do **not** conduct electricity. The ions are held in fixed positions within the lattice and are not free to move as charge carriers.
+    - **Molten or Aqueous (dissolved in water):** **Do** conduct electricity. The lattice structure is broken down, and the ions are mobile, allowing them to move and carry a current.
+- **Solubility:**
+    - **Soluble in polar solvents** (like water). Polar water molecules attract the charged ions, surrounding them and pulling them away from the lattice in a process called hydration.
+    - **Insoluble in non-polar solvents.** Non-polar molecules cannot overcome the strong electrostatic forces between the ions.
+- **Brittleness:** Ionic crystals are hard but brittle. If a strong force is applied, it can shift a layer of ions, bringing ions with like charges alongside each other. The resulting repulsion shatters the crystal.
+
+---
+
+## 4. Dot and Cross Diagrams & Examples
+
+These diagrams show the arrangement of outer-shell electrons and illustrate the transfer of electrons.
+
+### Sodium Chloride (NaCl)
+- **Formation:** A sodium atom (Group 1) transfers its one outer electron to a chlorine atom (Group 17).
+- **Ions:** `Na⁺` and `Cl⁻` are formed in a `1:1` ratio.
+- **Diagram:**
+    
+
+### Magnesium Oxide (MgO)
+- **Formation:** A magnesium atom (Group 2) transfers its two outer electrons to an oxygen atom (Group 16).
+- **Ions:** `Mg²⁺` and `O²⁻` are formed in a `1:1` ratio. The `2+` and `2-` charges result in even stronger electrostatic attraction than in NaCl.
+- **Diagram:**
+    
+
+### Calcium Fluoride (CaF₂)
+- **Formation:** A calcium atom (Group 2) must lose two outer electrons, but a fluorine atom (Group 17) can only accept one.
+- **Balancing Charges:** Therefore, one calcium atom transfers one electron to **each** of two fluorine atoms.
+- **Ions:** One `Ca²⁺` ion and two `F⁻` ions are formed. The formula is `CaF₂`.
+- **Diagram:**
+    
+
+### Aluminium Oxide (Al₂O₃)
+- **Formation:** Aluminium (Group 13) forms `Al³⁺`. Oxygen (Group 16) forms `O²⁻`.
+- **Balancing Charges:** To be neutral, the total positive charge must equal the total negative charge. The lowest common multiple of 3 and 2 is 6.
+    - `2 x Al³⁺` gives a `+6` charge.
+    - `3 x O²⁻` gives a `-6` charge.
+- **Ions:** The compound contains two `Al³⁺` ions for every three `O²⁻` ions. The formula is `Al₂O₃`.
+- **Diagram:**
+    
