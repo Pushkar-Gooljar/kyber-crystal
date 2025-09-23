@@ -1,1 +1,1 @@
-[[Essay Index]]
+The assertion that democracy is the best form of government has been a cornerstone of Western political thought for centuries, championed as the ultimate manifestation of human liberty and progress. Rooted in the Athenian ideal of 'rule by the people', its modern form champions popular sovereignty and the protection of individual rights. However, in an era marked by populist upheavals, political polarisation, and the perceived efficiency of autocratic states, this long-held axiom is facing renewed scrutiny.
