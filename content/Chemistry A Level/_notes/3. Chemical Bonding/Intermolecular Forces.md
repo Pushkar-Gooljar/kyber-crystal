@@ -1,7 +1,3 @@
-Of course. This is a comprehensive topic that connects electronegativity to the physical properties of substances. Here are the "perfect" notes, synthesizing the provided documents and my own knowledge, structured for your Obsidian vault.
-
----
-
 ## ⚡ Electronegativity and Bond Polarity
 
 >[!info] Definition: Electronegativity
