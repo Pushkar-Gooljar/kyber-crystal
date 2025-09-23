@@ -76,8 +76,16 @@ This table provides a detailed comparison of the distinct features of sigma and 
 
 ## The Concept of Hybridisation
 >[!info] Definition: Hybridisation
->- Hybridisation is the mixing of atomic orbitals within the same atom to form a new set of **degenerate** hybrid orbitals.
->- Hybrid orbitals are more directional than the original atomic orbitals, enabling greater overlap between the atomic orbitals of bonding atoms, resulting in stronger covalent bonds and more stable molecules.
+>- Hybridisation is the mixing of atomic orbitals within the same atom
+>- to produce a set of degenerate (same energy) hybrid orbitals
+>- that have characteristics of the original orbitals
+>- and are better arranged in space for covalent bonding
+>- ==The number of hybrid orbitals formed is equal to the number of orbitals mixed==
+>	- 1 s + 1 p = 2 $\mathrm{sp}$
+>	- 1s + 2 p = 3 $\mathrm{sp^2}$
+>	- 1s + 3p = 4 $\mathrm{sp^3}$
+
+
 
 | Hybridisation | Recipe (Mixing of Orbitals) |               Resulting Orbitals                |    Geometry & Bond Angle    |    Bonding Formed     | Charge Clouds on central atom |
 | :-----------: | :-------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------: | :---------------------------: |
