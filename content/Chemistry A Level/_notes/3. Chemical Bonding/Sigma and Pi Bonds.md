@@ -41,6 +41,8 @@ A pi bond is formed by the **sideways overlap** of adjacent $\mathrm{p}$-orbital
 - **Formation:** A π bond is *only* formed by the sideways overlap of **unhybridised p-orbitals**.
 - **Strength:** Pi bonds are **weaker** than sigma bonds because the sideways overlap is less effective (less direct) that head-on overlap
 
+"A pi (`π`) bond is formed by the **sideways overlap** of two adjacent, parallel **p-orbitals**. This overlap creates a region of high electron density consisting of **two lobes (or charge clouds)**, one located **above** and one **below** the plane of the sigma bond (the internuclear axis)"
+
 <figure>
   <img src="https://s3.eu-west-2.amazonaws.com/elements.cognitoedu.org/8fe4a873-d433-444d-9bc5-d39276d5c965/pi-bond-formation-diagram.png" class="custom-img">
   <figcaption></figcaption>
