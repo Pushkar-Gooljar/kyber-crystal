@@ -4,12 +4,6 @@
 >- A field of force is a region in space where a particle experiences a force.
 >- Fields of force are useful to describe non-contact forces, such as gravity and electromagnetism.
 
-## Gravitational Field
-
->[!tip] Concept: Field of Force
->- A field of force is a region in space where a particle experiences a force.
->- Fields of force are useful to describe non-contact forces, such as gravity and electromagnetism.
-
 >[!info] Definition: Gravitational Field
 >- A gravitational field is a region of space where a mass experiences a force.
 >- **Gravitational field strength (g)** at a point is the gravitational force exerted per unit mass on a small test mass placed at that point.
@@ -141,47 +135,3 @@
 - Orbits directly above the equator 
 - From west to east
 
-
-
->[!math] Formula: Gravitational Field Strength 
-> $$\begin{align} \\
-\text{gravitational field strength} &= \frac{\text{Force}}{mass} \\ \\
-\mathrm{g} &= \mathrm{\frac{GMm}{r^2}} \times \frac{1}{\mathrm{m}} \\ \\
-\mathrm{g} &= \frac{\mathrm{GM}}{\mathrm{r^2}}
-\end{align}$$
-
-### Questions
----
-**State what is represented by a gravitational field line.**
-- Direction of gravitational force
-- acting on a test mass
----
-**Describe the pattern of field lines outside a the earth that represent the gravitational field due to the planet.** 
-- Radial
-- Towards the centre of earth 
----
-**Why for small changes in vertical height, near the surface of the planet, g may be assumed to be constant?**
-- Change in height is negligible compared to radius (of planet)
-- ($R^2 + x^2$) $\approx$ $R^2$ 
-- Field lines are approximately parallel and evenly spaced 
----
-**An observer moves around the surface of the earth, explain why the observed gravitational field of the earth does not vary around the surface.**
-- Gravitational field lines are approximately parallel and evenly spaced.
-- All field lines are perpendicular to the surface of earth and pointing toward the centre
----
-![[Pasted image 20251001163410.png]]
-**Explain why at the surface of the sphere, g always has the opposite sign to x.**
-- Gravitational force is always attractive and acts towards the centre of the sphere
-- Gravitational force is in opposite direction to displacement
-
----
-
-**Conditions for geostationary orbit (earth)**
-- Orbital period of 24 hours
-- remains at the same point above the Earth’s surface
-- Orbits directly above the equator 
-- From west to east
-**Why is GPE/gravitational potential between two point masses always negative?**
-- GPE at infinity is zero.
-- Gravitational force (between two masses) is always attractive 
-- Work done **on** two masses in moving them **apart**
